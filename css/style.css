@@ -1,0 +1,162 @@
+:root{
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+html{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: var(--light-grayish-blue);
+  display: flex;
+  min-height: 100vh;
+}
+
+.grid__container{
+  width: 80%;
+  max-width: 320px;
+  margin: 4em auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2.2em;
+}
+
+.grid__card{
+  width: 100%;
+  padding: 2em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  box-shadow: 2px 5px 10px -5px rgb(0 0 0 / 30%);
+}
+
+.grid__card:nth-child(1){
+  background-color: var(--moderate-violet);
+  position: relative;
+  z-index: 0;
+  color: #fff;
+}
+
+.grid__comillas{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 20px;
+}
+
+.card__info{
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  position: relative;
+  z-index: 2;
+}
+
+.card__img{
+  width: 40px;
+  height: 40px;
+  border: medium solid rgba(256, 256, 256, 0.3);
+  border-radius: 50%;
+}
+
+.card__name{
+  font-weight:300;
+}
+
+.card__name--op05{
+  opacity: 0.5;
+  font-size: 0.8rem;
+}
+
+.card__title{
+  position: relative;
+  z-index: 0;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.card__paragraph{
+  letter-spacing: 0.2px;
+  opacity: 0.7;
+}
+
+.grid__card:nth-child(2){
+  background-color: var(--very-dark-grayish-blue);
+  color: #fff;
+}
+
+.grid__card:nth-child(3),
+.grid__card:nth-child(5){
+  background-color: var(--white);
+  position: relative;
+  color: var(--very-dark-blackish-blue);
+}
+
+.grid__card:nth-child(3) .card__title,
+.grid__card:nth-child(5) .card__title{
+  color: var(--very-dark-grayish-blue);
+}
+
+.grid__card:nth-child(4){
+  color: var(--white);
+  background-color: var(--very-dark-blackish-blue);
+}
+
+@media screen and (min-width: 65em) {
+  .grid__container{
+    margin: auto;
+    width: 90%;
+    height: 80%;
+    max-width: 1200px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "test1 test1 test2 test5"
+    "test3 test4 test4 test5";
+  }
+
+  .grid__card{
+    overflow: hidden;
+  }
+
+  .grid__card:nth-child(1){
+    grid-area: test1;
+  }
+
+  .grid__card:nth-child(2){
+    grid-area: test2;
+  }
+
+  .grid__card:nth-child(3){
+    grid-area: test3;
+  }
+
+  .grid__card:nth-child(4){
+    grid-area: test4;
+  }
+
+  .grid__card:nth-child(5){
+    grid-area: test5;
+  }
+
+  .card__paragraph{
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+  }
+}
